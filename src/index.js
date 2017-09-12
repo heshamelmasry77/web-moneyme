@@ -1,13 +1,13 @@
 var angular = require('angular');
 
-var techsModule = require('./app/techs/index');
+var techsModule = require('./app/components/techs/index');
 require('angular-ui-router');
 var routesConfig = require('./routes');
 
-var main = require('./app/main');
-var header = require('./app/header');
-var title = require('./app/title');
-var footer = require('./app/footer');
+var main = require('./app/components/main/main');
+var header = require('./app/shared/header/header');
+var title = require('./app/shared/title/title');
+var footer = require('./app/shared/footer/footer');
 
 require('./index.scss');
 

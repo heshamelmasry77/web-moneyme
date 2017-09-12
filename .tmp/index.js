@@ -8436,24 +8436,6 @@ module.exports = {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = {
-  template: __webpack_require__(13)
-};
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = {
-  template: __webpack_require__(14)
-};
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var angular = __webpack_require__(0);
 
 var tech = __webpack_require__(18);
@@ -8467,6 +8449,24 @@ angular
   .module(techsModule, [])
   .component('fountainTech', tech)
   .component('fountainTechs', techs);
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+  template: __webpack_require__(15)
+};
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+  template: __webpack_require__(16)
+};
 
 
 /***/ }),
@@ -42492,31 +42492,31 @@ module.exports = function() {
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"footer\">\n  Build with ♥ by the&nbsp;\n  <a href=\"https://github.com/orgs/FountainJS/people\">\n    FountainJS team\n  </a>\n</footer>\n";
+module.exports = "<div class=\"main-container\">\n  <fountain-header></fountain-header>\n  <main class=\"main\">\n    <fountain-title></fountain-title>\n    <fountain-techs></fountain-techs>\n  </main>\n  <fountain-footer></fountain-footer>\n</div>\n";
 
 /***/ }),
 /* 13 */
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"header\">\n  <p class=\"header-title\">\n    <a href=\"https://github.com/FountainJS/generator-fountain-webapp\" target=\"_blank\" rel=\"noopener noreferrer\">\n      Fountain Generator\n    </a>\n  </p>\n  <p class=\"header-date\">\n    Generated with FountainJS v1.0.0 on Wed Feb 22 2017 09:31:10 GMT+0100 (CET)\n  </p>\n</header>\n";
+module.exports = "<div class=\"tech\">\n  <img class=\"tech-logo\" ng-src=\"{{ $ctrl.tech.logo }}\"/>\n  <h3 class=\"tech-h3\">\n    {{ $ctrl.tech.title }}\n  </h3>\n  <p>{{ $ctrl.tech.text1 }}</p>\n  <p>{{ $ctrl.tech.text2 }}</p>\n</div>\n";
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-container\">\n  <fountain-header></fountain-header>\n  <main class=\"main\">\n    <fountain-title></fountain-title>\n    <fountain-techs></fountain-techs>\n  </main>\n  <fountain-footer></fountain-footer>\n</div>\n";
+module.exports = "<div class=\"techs-container\">\n  <h2 class=\"techs-h2\">\n    Cooked with all these awesome technologies:\n  </h2>\n  <div class=\"techs\">\n    <fountain-tech ng-repeat=\"tech in $ctrl.techs\" tech=\"tech\"></fountain-tech>\n  </div>\n</div>\n";
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"tech\">\n  <img class=\"tech-logo\" ng-src=\"{{ $ctrl.tech.logo }}\"/>\n  <h3 class=\"tech-h3\">\n    {{ $ctrl.tech.title }}\n  </h3>\n  <p>{{ $ctrl.tech.text1 }}</p>\n  <p>{{ $ctrl.tech.text2 }}</p>\n</div>\n";
+module.exports = "<footer class=\"footer\">\n  Build with ♥ by the&nbsp;\n  <a href=\"https://github.com/orgs/FountainJS/people\">\n    FountainJS team\n  </a>\n</footer>\n";
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"techs-container\">\n  <h2 class=\"techs-h2\">\n    Cooked with all these awesome technologies:\n  </h2>\n  <div class=\"techs\">\n    <fountain-tech ng-repeat=\"tech in $ctrl.techs\" tech=\"tech\"></fountain-tech>\n  </div>\n</div>\n";
+module.exports = "<header class=\"header\">\n  <p class=\"header-title\">\n    <a href=\"https://github.com/FountainJS/generator-fountain-webapp\" target=\"_blank\" rel=\"noopener noreferrer\">\n      Fountain Generator\n    </a>\n  </p>\n  <p class=\"header-date\">\n    Generated with FountainJS v1.0.0 on Wed Feb 22 2017 09:31:10 GMT+0100 (CET)\n  </p>\n</header>\n";
 
 /***/ }),
 /* 17 */
@@ -42529,7 +42529,7 @@ module.exports = "<div class=\"title\">\n  <h1 class=\"title-h1\">'Allo, 'Allo!<
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
-  template: __webpack_require__(15),
+  template: __webpack_require__(13),
   bindings: {
     tech: '<'
   }
@@ -42542,7 +42542,7 @@ module.exports = {
 
 
 TechsController.$inject = ["$http"];module.exports = {
-  template: __webpack_require__(16),
+  template: __webpack_require__(14),
   controller: TechsController
 };
 
@@ -42551,7 +42551,7 @@ function TechsController($http) {
   var vm = this;
 
   $http
-    .get('app/techs/techs.json')
+    .get('app/components/techs/techs.json')
     .then(function (response) {
       vm.techs = response.data;
     });
@@ -42564,14 +42564,14 @@ function TechsController($http) {
 
 var angular = __webpack_require__(0);
 
-var techsModule = __webpack_require__(5);
+var techsModule = __webpack_require__(3);
 __webpack_require__(1);
 var routesConfig = __webpack_require__(7);
 
-var main = __webpack_require__(4);
-var header = __webpack_require__(3);
+var main = __webpack_require__(2);
+var header = __webpack_require__(5);
 var title = __webpack_require__(6);
-var footer = __webpack_require__(2);
+var footer = __webpack_require__(4);
 
 __webpack_require__(8);
 
